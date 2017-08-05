@@ -57,9 +57,44 @@ describe('ForgottenRealmsTest', () => {
 
   describe('#equalTo', () => {
     it('allows comparison of two dates', () => {
-      const date1 = new ForgottenRealmsDate(3000, 1, 0);
-      const date2 = new ForgottenRealmsDate(3000, 1, 0);
+      const date1 = new ForgottenRealmsDate(3000, 1, 1);
+      const date2 = new ForgottenRealmsDate(3000, 1, 1);
       expect(date1.equalTo(date2)).to.be.true;
     })
   });
+
+  describe('#addDays', () => {
+    it('does not return the same reference', () => {
+      const date = new ForgottenRealmsDate();
+      expect(date.addDays()).to.not.equal(date);
+    });
+
+    context('within the same month', () => {
+      it('allows you to add days to a date', () => {
+        const date = new ForgottenRealmsDate(3000, 1, 1);
+        const newDate = date.addDays(10);
+        expect(newDate.getYear()).to.equal(3000);
+        expect(newDate.getMonth()).to.equal(1);
+        expect(newDate.getDay()).to.equal(11);
+      });
+    });
+  });
+
+  describe('#subtractDays', () => {
+    it('does not return the same reference', () => {
+      const date = new ForgottenRealmsDate();
+      expect(date.subtractDays()).to.not.equal(date);
+    });
+
+    context('within the same month', () => {
+      it('allows you to add days to a date', () => {
+        const date = new ForgottenRealmsDate(3000, 1, 20);
+        const newDate = date.subtractDays(10);
+        expect(newDate.getYear()).to.equal(3000);
+        expect(newDate.getMonth()).to.equal(1);
+        expect(newDate.getDay()).to.equal(10);
+      });
+    });
+  });
+
 });

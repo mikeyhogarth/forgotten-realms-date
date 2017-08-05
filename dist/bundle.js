@@ -141,6 +141,16 @@ module.exports = function () {
     value: function equalTo(otherDate) {
       return otherDate.getDay() === this.getDay() && otherDate.getMonth() === this.getMonth() && otherDate.getYear() === this.getYear();
     }
+  }, {
+    key: 'addDays',
+    value: function addDays(days) {
+      return new ForgottenRealmsDate(this.getYear(), this.getMonth(), this.getDay() + days);
+    }
+  }, {
+    key: 'subtractDays',
+    value: function subtractDays(days) {
+      return new ForgottenRealmsDate(this.getYear(), this.getMonth(), this.getDay() - days);
+    }
   }]);
 
   return ForgottenRealmsDate;

@@ -45,4 +45,12 @@
       otherDate.getYear() === this.getYear();
   }
 
+  addDays(days) {
+    return new ForgottenRealmsDate(this.getYear(), this.getMonth(), this.getDay() + days)
+  }
+
+  subtractDays(days) {
+    return new ForgottenRealmsDate(this.getYear(), this.getMonth(), this.getDay() - days)
+  }
+
  }
