@@ -136,6 +136,11 @@ module.exports = function () {
     value: function toString() {
       return this.getMonthName() + ' ' + this.getDay() + ', ' + this.getYear() + ' DR';
     }
+  }, {
+    key: 'equalTo',
+    value: function equalTo(otherDate) {
+      return otherDate.getDay() === this.getDay() && otherDate.getMonth() === this.getMonth() && otherDate.getYear() === this.getYear();
+    }
   }]);
 
   return ForgottenRealmsDate;

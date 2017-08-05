@@ -52,6 +52,14 @@ describe('ForgottenRealmsTest', () => {
     it('returns the current date, as a string', () => {
       const date = new ForgottenRealmsDate(3000, 3, 29);
       expect(date.toString()).to.equal('Tarsakh 29, 3000 DR');
+    });
+  });
+
+  describe('#equalTo', () => {
+    it('allows comparison of two dates', () => {
+      const date1 = new ForgottenRealmsDate(3000, 1, 0);
+      const date2 = new ForgottenRealmsDate(3000, 1, 0);
+      expect(date1.equalTo(date2)).to.be.true;
     })
   });
 });

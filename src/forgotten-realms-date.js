@@ -39,4 +39,10 @@
     return `${this.getMonthName()} ${this.getDay()}, ${this.getYear()} DR`;
   }
 
+  equalTo(otherDate) {
+    return otherDate.getDay() === this.getDay() &&
+      otherDate.getMonth() === this.getMonth() &&
+      otherDate.getYear() === this.getYear();
+  }
+
  }
