@@ -1,6 +1,8 @@
 # Forgotten Realms Date
 A "Date" object for representing and manipulating dates in using the Forgotten Realms Dalereckoning (DR) system. See the [Wikipedia entry](https://en.wikipedia.org/wiki/Calendars_in_the_Forgotten_Realms) for more detail.
 
+**Bear in mind** this is a work in progress - at time of writing the code should not be used in any production environment. The representation of the date is presently in a placeholder state while I get the test suite together - I am fully aware that the internal representation can not stay the way it is.
+
 ## Installation
 Use `dist/bundle.js` - it's built with a UMD hook so should work with whatever method you use to import modules.
 
