@@ -1,0 +1,14 @@
+[
+  { "name": "Hammer",    "commonName": "Deepwinter"},
+  { "name": "Alturiak",  "commonName": "The Claw of Winter"},
+  { "name": "Ches",      "commonName": "The Claw of the Sunsets"},
+  { "name": "Tarsakh",   "commonName": "The Claw of the Storms"},
+  { "name": "Mirtul",    "commonName": "The Melting"},
+  { "name": "Kythorn",   "commonName": "The Time of Flowers"},
+  { "name": "Flamerule", "commonName": "Summertide"},
+  { "name": "Elesias",   "commonName": "Highsun"},
+  { "name": "Eleint",    "commonName": "The Fading"},
+  { "name": "Marpenoth", "commonName": "Leaffall"},
+  { "name": "Uktar",     "commonName": "The Rotting"},
+  { "name": "Nightal",   "commonName": "The Drawing Down"}
+]

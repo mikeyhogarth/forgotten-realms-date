@@ -1,0 +1,31 @@
+{
+  "name": "forgotten-realms-date",
+  "version": "0.0.0",
+  "description": "A \"Date\" object for representing and manipulating dates in using the Forgotten Realms Dalereckoning (DR) system",
+  "main": "dist/bundle.js",
+  "scripts": {
+    "test": "webpack && mocha",
+    "build": "webpack --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeyhogarth/forgotten-realms-date.git"
+  },
+  "author": "Mikey Hogarth",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/mikeyhogarth/forgotten-realms-date/issues"
+  },
+  "homepage": "https://github.com/mikeyhogarth/forgotten-realms-date#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0",
+    "mocha-webpack": "^0.7.0",
+    "webpack": "^3.4.1"
+  }
+}
