@@ -10,7 +10,7 @@ const date = new ForgottenRealmsDate(3000, 3, 29);
 
 date.toString(); // => 'Tarsakh 29, 3000 DR'
 ```
-See tests for more examples.
+See [tests](src/forgotten-realms-date.test.js) for more examples.
 
 ## Planned Features
 * Immutable date manipulation
