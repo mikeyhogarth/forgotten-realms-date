@@ -79,11 +79,11 @@ describe('ForgottenRealmsTest', () => {
 
     context('when crossing over a month/year', () => {
       it('handles the transition correctly', () => {
-        const date = new ForgottenRealmsDate(2999, 11, 30);
-        const newDate = date.addDays(2);
+        const date = new ForgottenRealmsDate(2999, 11, 31);
+        const newDate = date.addDays(1);
         expect(newDate.getYear()).to.equal(3000);
         expect(newDate.getMonth()).to.equal(0);
-        expect(newDate.getDay()).to.equal(2);
+        expect(newDate.getDay()).to.equal(1);
       });
     });
     
@@ -129,7 +129,7 @@ describe('ForgottenRealmsTest', () => {
         const newDate = date.subtractDays(2);
         expect(newDate.getYear()).to.equal(2999);
         expect(newDate.getMonth()).to.equal(11);
-        expect(newDate.getDay()).to.equal(29);
+        expect(newDate.getDay()).to.equal(30);
       });
     });
   });

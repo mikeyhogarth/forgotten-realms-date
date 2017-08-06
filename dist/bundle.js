@@ -109,25 +109,23 @@ var ForgottenRealmsDate = function () {
 
     _classCallCheck(this, ForgottenRealmsDate);
 
-    this._day = day;
-    this._month = month;
-    this._year = year;
+    this._date = new Date(year, month, day);
   }
 
   _createClass(ForgottenRealmsDate, [{
     key: 'getYear',
     value: function getYear() {
-      return this._year;
+      return this._date.getFullYear();
     }
   }, {
     key: 'getMonth',
     value: function getMonth() {
-      return this._month;
+      return this._date.getMonth();
     }
   }, {
     key: 'getDay',
     value: function getDay() {
-      return this._day;
+      return this._date.getDate();
     }
 
     /**
@@ -139,7 +137,7 @@ var ForgottenRealmsDate = function () {
   }, {
     key: 'getMonthName',
     value: function getMonthName() {
-      return MONTHS[this._month].name;
+      return MONTHS[this.getMonth()].name;
     }
 
     /**
@@ -151,7 +149,7 @@ var ForgottenRealmsDate = function () {
   }, {
     key: 'getMonthCommonName',
     value: function getMonthCommonName() {
-      return MONTHS[this._month].commonName;
+      return MONTHS[this.getMonth()].commonName;
     }
 
     /**
@@ -191,21 +189,9 @@ var ForgottenRealmsDate = function () {
     value: function addDays() {
       var days = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
-      var newDay = this.getDay(),
-          newMonth = this.getMonth(),
-          newYear = this.getYear();
-
-      for (var i = 0; i < days; i++) {
-        newDay++;
-        if (newDay > 30) {
-          newMonth++;newDay = 1;
-        }
-        if (newMonth > 11) {
-          newYear++;newMonth = 0;
-        }
-      };
-
-      return new ForgottenRealmsDate(newYear, newMonth, newDay);
+      var date = new Date(this._date);
+      date.setDate(date.getDate() + days);
+      return new ForgottenRealmsDate(date.getFullYear(), date.getMonth(), date.getDate());
     }
 
     /**
@@ -233,7 +219,7 @@ var ForgottenRealmsDate = function () {
     value: function addYears() {
       var years = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
-      return new ForgottenRealmsDate(this.getYear() + years, this.getMonth(), this.getDay());
+      return this.addDays(365 * years);
     }
 
     /**
@@ -247,21 +233,9 @@ var ForgottenRealmsDate = function () {
     value: function subtractDays() {
       var days = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
-      var newDay = this.getDay(),
-          newMonth = this.getMonth(),
-          newYear = this.getYear();
-
-      for (var i = 0; i < days; i++) {
-        newDay--;
-        if (newDay < 1) {
-          newMonth--;newDay = 30;
-        }
-        if (newMonth < 1) {
-          newYear--;newMonth = 11;
-        }
-      };
-
-      return new ForgottenRealmsDate(newYear, newMonth, newDay);
+      var date = new Date(this._date);
+      date.setDate(date.getDate() - days);
+      return new ForgottenRealmsDate(date.getFullYear(), date.getMonth(), date.getDate());
     }
 
     /**

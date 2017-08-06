@@ -18,21 +18,19 @@ class ForgottenRealmsDate {
    * @param {integer} day
    */
   constructor(year = BEGINNING_OF_THE_AGE_OF_THUNDER, month = 0, day = 1) {
-    this._day    = day;
-    this._month  = month;
-    this._year   = year;
+    this._date = new Date(year, month, day);
   }
 
   getYear() {
-    return this._year;
+    return this._date.getFullYear();
   }
 
   getMonth() {
-    return this._month;
+    return this._date.getMonth();
   }
 
   getDay() {
-    return this._day;
+    return this._date.getDate();
   }
 
   /**
@@ -41,7 +39,7 @@ class ForgottenRealmsDate {
    * @returns string
    */
   getMonthName() {
-    return MONTHS[this._month].name;
+    return MONTHS[this.getMonth()].name;
   }
 
   /**
@@ -50,7 +48,7 @@ class ForgottenRealmsDate {
    * @returns string
    */
   getMonthCommonName() {
-    return MONTHS[this._month].commonName;
+    return MONTHS[this.getMonth()].commonName;
   }
 
   /**
@@ -81,15 +79,9 @@ class ForgottenRealmsDate {
    * @return a new ForgottenRealmsDate object
    */
   addDays(days = 1) {
-    let newDay   = this.getDay(), newMonth = this.getMonth(), newYear  = this.getYear(); 
-    
-    for(let i = 0; i < days; i++) {
-      newDay++;
-      if(newDay > 30)   { newMonth++; newDay = 1;   }
-      if(newMonth > 11) { newYear++;  newMonth = 0; }
-    };
-
-    return new ForgottenRealmsDate(newYear, newMonth, newDay);
+    const date = new Date(this._date);
+    date.setDate(date.getDate() + days);
+    return new ForgottenRealmsDate(date.getFullYear(), date.getMonth(), date.getDate());
   }
 
   /**
@@ -107,7 +99,7 @@ class ForgottenRealmsDate {
    * @return a new ForgottenRealmsDate object
    */
   addYears(years = 1) {
-    return new ForgottenRealmsDate(this.getYear() + years, this.getMonth(), this.getDay());
+    return this.addDays(365 * years);
   }
 
   /**
@@ -116,15 +108,9 @@ class ForgottenRealmsDate {
    * @param {integer} days - days to subtract
    */
   subtractDays(days = 1) {
-    let newDay   = this.getDay(), newMonth = this.getMonth(), newYear  = this.getYear(); 
-    
-    for(let i = 0; i < days; i++) {
-      newDay--;
-      if(newDay < 1)    { newMonth--; newDay = 30;   }
-      if(newMonth < 1)  { newYear--;  newMonth = 11; }
-    };
-
-    return new ForgottenRealmsDate(newYear, newMonth, newDay);
+    const date = new Date(this._date);
+    date.setDate(date.getDate() - days);
+    return new ForgottenRealmsDate(date.getFullYear(), date.getMonth(), date.getDate());
   }
 
   /**
