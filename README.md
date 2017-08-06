@@ -15,7 +15,7 @@ date.toString();    // => 'Tarsakh 29, 3000 DR'
 const newDate = date.addDays(2);
 newDate.toString(); // => 'Mirtul 1, 3000 DR' 
 ```
-See [tests](src/forgotten-realms-date.test.js) for more examples, or take a look at teh [full API](https://mikeyhogarth.github.io/forgotten-realms-date/ForgottenRealmsDate.html) provided via JSdoc.
+See [tests](src/forgotten-realms-date.test.js) for more examples, or take a look at the [API](https://mikeyhogarth.github.io/forgotten-realms-date/ForgottenRealmsDate.html) provided via JSdoc.
 
 ## Planned Features
 * Immutable date manipulation
