@@ -9,14 +9,16 @@ Use `dist/bundle.js` - it's built with a UMD hook so should work with whatever m
 ## Usage
 ```
 const date = new ForgottenRealmsDate(3000, 3, 29);
+date.toString();    // => 'Tarsakh 29, 3000 DR'
 
-date.toString(); // => 'Tarsakh 29, 3000 DR'
+// Adding days
+const newDate = date.addDays(2);
+newDate.toString(); // => 'Mirtul 1, 3000 DR' 
 ```
 See [tests](src/forgotten-realms-date.test.js) for more examples.
 
 ## Planned Features
 * Immutable date manipulation
-  * Add/Subtract days
   * Add/Subtract Tendays
   * Add/Subtract years
 * Holidays (Midwinter, Greengrass, Midsummer, Highharvestide and The Feast of the Moon)

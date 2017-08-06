@@ -1,5 +1,5 @@
 module.exports = {
-  entry: "./src/forgotten-realms-date.js",
+  entry: "./src/ForgottenRealmsDate.js",
   output: {
       path: __dirname,
       filename: "dist/bundle.js",

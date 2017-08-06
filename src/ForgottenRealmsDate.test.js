@@ -68,16 +68,25 @@ describe('ForgottenRealmsTest', () => {
       const date = new ForgottenRealmsDate();
       expect(date.addDays()).to.not.equal(date);
     });
+  
+    it('allows you to add days to a date', () => {
+      const date = new ForgottenRealmsDate(3000, 1, 1);
+      const newDate = date.addDays(10);
+      expect(newDate.getYear()).to.equal(3000);
+      expect(newDate.getMonth()).to.equal(1);
+      expect(newDate.getDay()).to.equal(11);
+    });
 
-    context('within the same month', () => {
-      it('allows you to add days to a date', () => {
-        const date = new ForgottenRealmsDate(3000, 1, 1);
-        const newDate = date.addDays(10);
+    context('when crossing over a month/year', () => {
+      it('handles the transition correctly', () => {
+        const date = new ForgottenRealmsDate(2999, 11, 30);
+        const newDate = date.addDays(2);
         expect(newDate.getYear()).to.equal(3000);
-        expect(newDate.getMonth()).to.equal(1);
-        expect(newDate.getDay()).to.equal(11);
+        expect(newDate.getMonth()).to.equal(0);
+        expect(newDate.getDay()).to.equal(2);
       });
     });
+    
   });
 
   describe('#subtractDays', () => {
@@ -86,13 +95,21 @@ describe('ForgottenRealmsTest', () => {
       expect(date.subtractDays()).to.not.equal(date);
     });
 
-    context('within the same month', () => {
-      it('allows you to add days to a date', () => {
-        const date = new ForgottenRealmsDate(3000, 1, 20);
-        const newDate = date.subtractDays(10);
-        expect(newDate.getYear()).to.equal(3000);
-        expect(newDate.getMonth()).to.equal(1);
-        expect(newDate.getDay()).to.equal(10);
+    it('allows you to subtract days from a date', () => {
+      const date = new ForgottenRealmsDate(3000, 1, 20);
+      const newDate = date.subtractDays(10);
+      expect(newDate.getYear()).to.equal(3000);
+      expect(newDate.getMonth()).to.equal(1);
+      expect(newDate.getDay()).to.equal(10);
+    });
+
+    context('when crossing over a month/year', () => {
+      it('handles the transition correctly', () => {
+        const date = new ForgottenRealmsDate(3000, 0, 1);
+        const newDate = date.subtractDays(2);
+        expect(newDate.getYear()).to.equal(2999);
+        expect(newDate.getMonth()).to.equal(11);
+        expect(newDate.getDay()).to.equal(29);
       });
     });
   });

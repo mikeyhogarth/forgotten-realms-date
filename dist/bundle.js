@@ -78,17 +78,16 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 /**
  * Forgotten Realms Date
  * 
  * Author: Mikey Hogarth on a very slow Saturday evening
  */
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var BEGINNING_OF_THE_AGE_OF_THUNDER = -35000;
 var MONTHS = __webpack_require__(1);
@@ -121,35 +120,106 @@ module.exports = function () {
     value: function getDay() {
       return this._day;
     }
+
+    /**
+     * getMonthName
+     * get this month's name
+     */
+
   }, {
     key: 'getMonthName',
     value: function getMonthName() {
       return MONTHS[this._month].name;
     }
+
+    /**
+     * getMonthCommonName
+     * get this month's common name
+     */
+
   }, {
     key: 'getMonthCommonName',
     value: function getMonthCommonName() {
       return MONTHS[this._month].commonName;
     }
+
+    /**
+     * toString
+     * converts the date to a readable string
+     */
+
   }, {
     key: 'toString',
     value: function toString() {
       return this.getMonthName() + ' ' + this.getDay() + ', ' + this.getYear() + ' DR';
     }
+
+    /**
+     * equalTo
+     * compares this date to another
+     * @param {ForgottenRealmsDate} otherDate - date to compare to
+     */
+
   }, {
     key: 'equalTo',
     value: function equalTo(otherDate) {
       return otherDate.getDay() === this.getDay() && otherDate.getMonth() === this.getMonth() && otherDate.getYear() === this.getYear();
     }
+
+    /**
+     * addDays
+     * add some days to this date and return a new date with the result
+     * @param {integer} days - days to add (default 1)
+     */
+
   }, {
     key: 'addDays',
-    value: function addDays(days) {
-      return new ForgottenRealmsDate(this.getYear(), this.getMonth(), this.getDay() + days);
+    value: function addDays() {
+      var days = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+      var newDay = this.getDay(),
+          newMonth = this.getMonth(),
+          newYear = this.getYear();
+
+      for (var i = 0; i < days; i++) {
+        newDay++;
+        if (newDay > 30) {
+          newMonth++;newDay = 1;
+        }
+        if (newMonth > 11) {
+          newYear++;newMonth = 0;
+        }
+      };
+
+      return new ForgottenRealmsDate(newYear, newMonth, newDay);
     }
+
+    /**
+     * subtractDays
+     * subtract some days to this date and return a new date with the result
+     * @param {integer} days - days to subtract (default 1)
+     */
+
   }, {
     key: 'subtractDays',
-    value: function subtractDays(days) {
-      return new ForgottenRealmsDate(this.getYear(), this.getMonth(), this.getDay() - days);
+    value: function subtractDays() {
+      var days = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+      var newDay = this.getDay(),
+          newMonth = this.getMonth(),
+          newYear = this.getYear();
+
+      for (var i = 0; i < days; i++) {
+        newDay--;
+        if (newDay < 1) {
+          newMonth--;newDay = 30;
+        }
+        if (newMonth < 1) {
+          newYear--;newMonth = 11;
+        }
+      };
+
+      return new ForgottenRealmsDate(newYear, newMonth, newDay);
     }
   }]);
 
