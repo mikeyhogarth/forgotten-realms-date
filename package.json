@@ -4,9 +4,9 @@
   "description": "A \"Date\" object for representing and manipulating dates in using the Forgotten Realms Dalereckoning (DR) system",
   "main": "dist/bundle.js",
   "scripts": {
-    "test": "webpack && mocha",
-    "doc": "jsdoc src/ForgottenRealmsDate.js -d docs",
-    "build": "webpack --progress --colors"
+    "doc":   "jsdoc src/ForgottenRealmsDate.js -d docs",
+    "build": "npm run doc && webpack --progress --colors",
+    "test":  "npm run build && mocha"
   },
   "repository": {
     "type": "git",

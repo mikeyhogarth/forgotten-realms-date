@@ -8,9 +8,7 @@
 const BEGINNING_OF_THE_AGE_OF_THUNDER = -35000;
 const MONTHS = require('./data/months.json');
 
-/**
- * ForgottenRealmsDate
- */
+/** Class representing a date in the Forgotten Realms Dalereckoning (DR) system. */
 class ForgottenRealmsDate {
 
   /**

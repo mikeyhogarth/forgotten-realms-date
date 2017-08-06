@@ -92,7 +92,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var BEGINNING_OF_THE_AGE_OF_THUNDER = -35000;
 var MONTHS = __webpack_require__(1);
 
-module.exports = function () {
+/** Class representing a date in the Forgotten Realms Dalereckoning (DR) system. */
+
+var ForgottenRealmsDate = function () {
+
+  /**
+   * @constructor
+   * @param {integer} year 
+   * @param {integer} month 
+   * @param {integer} day
+   */
   function ForgottenRealmsDate() {
     var year = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : BEGINNING_OF_THE_AGE_OF_THUNDER;
     var month = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
@@ -169,7 +178,7 @@ module.exports = function () {
     /**
      * addDays
      * add some days to this date and return a new date with the result
-     * @param {integer} days - days to add (default 1)
+     * @param {integer} days - days to add
      */
 
   }, {
@@ -197,7 +206,7 @@ module.exports = function () {
     /**
      * subtractDays
      * subtract some days to this date and return a new date with the result
-     * @param {integer} days - days to subtract (default 1)
+     * @param {integer} days - days to subtract
      */
 
   }, {
@@ -225,6 +234,8 @@ module.exports = function () {
 
   return ForgottenRealmsDate;
 }();
+
+module.exports = ForgottenRealmsDate;
 
 /***/ }),
 /* 1 */
