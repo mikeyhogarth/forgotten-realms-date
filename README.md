@@ -18,9 +18,6 @@ newDate.toString(); // => 'Mirtul 1, 3000 DR'
 See [tests](src/forgotten-realms-date.test.js) for more examples, or take a look at the [API](https://mikeyhogarth.github.io/forgotten-realms-date/ForgottenRealmsDate.html) provided via JSdoc.
 
 ## Planned Features
-* Immutable date manipulation
-  * Add/Subtract Tendays
-  * Add/Subtract years
 * Holidays (Midwinter, Greengrass, Midsummer, Highharvestide and The Feast of the Moon)
 * Leap years (Shieldmeet)
 * Special day identification (Spring Equinox, Summer Solstice, Autumn Equinox, Winter Solstice)
