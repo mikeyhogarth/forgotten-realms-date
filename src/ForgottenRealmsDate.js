@@ -88,6 +88,14 @@ class ForgottenRealmsDate {
   }
 
   /**
+   * addTendays
+   * adds some tendays (weeks, which are 10 days long in DR) to the current date
+   */
+  addTendays(tendays = 1) {
+    return this.addDays(10 * tendays);
+  }
+
+  /**
    * subtractDays
    * subtract some days to this date and return a new date with the result
    * @param {integer} days - days to subtract
@@ -103,5 +111,14 @@ class ForgottenRealmsDate {
 
     return new ForgottenRealmsDate(newYear, newMonth, newDay);
   }
+
+  /**
+   * subtractTendays
+   * adds some tendays (weeks, which are 10 days long in DR) to the current date
+   */
+  subtractTendays(tendays = 1) {
+    return this.subtractDays(10 * tendays);
+  }
+
 }
 module.exports = ForgottenRealmsDate;

@@ -89,6 +89,17 @@ describe('ForgottenRealmsTest', () => {
     
   });
 
+  describe('#addTendays', () => {
+    it('adds the specified number of tendays (a.k.a weeks) to the date', () => {
+      const date = new ForgottenRealmsDate(2999, 11, 10);
+      const newDate = date.addTendays(2);
+      expect(newDate.getYear()).to.equal(2999);
+      expect(newDate.getMonth()).to.equal(11);
+      expect(newDate.getDay()).to.equal(30);
+    })
+  });
+
+
   describe('#subtractDays', () => {
     it('does not return the same reference', () => {
       const date = new ForgottenRealmsDate();
