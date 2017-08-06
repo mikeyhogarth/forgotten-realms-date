@@ -38,6 +38,7 @@ class ForgottenRealmsDate {
   /**
    * getMonthName
    * get this month's name
+   * @returns string
    */
   getMonthName() {
     return MONTHS[this._month].name;
@@ -46,6 +47,7 @@ class ForgottenRealmsDate {
   /**
    * getMonthCommonName
    * get this month's common name
+   * @returns string
    */
   getMonthCommonName() {
     return MONTHS[this._month].commonName;
@@ -54,6 +56,7 @@ class ForgottenRealmsDate {
   /**
    * toString
    * converts the date to a readable string
+   * @returns string
    */
   toString() {
     return `${this.getMonthName()} ${this.getDay()}, ${this.getYear()} DR`;
@@ -63,6 +66,7 @@ class ForgottenRealmsDate {
    * equalTo
    * compares this date to another
    * @param {ForgottenRealmsDate} otherDate - date to compare to
+   * @returns boolean - true if otherDate is equal, false otherwise
    */
   equalTo(otherDate) {
     return otherDate.getDay() === this.getDay() &&
@@ -74,6 +78,7 @@ class ForgottenRealmsDate {
    * addDays
    * add some days to this date and return a new date with the result
    * @param {integer} days - days to add
+   * @return a new ForgottenRealmsDate object
    */
   addDays(days = 1) {
     let newDay   = this.getDay(), newMonth = this.getMonth(), newYear  = this.getYear(); 
@@ -90,9 +95,19 @@ class ForgottenRealmsDate {
   /**
    * addTendays
    * adds some tendays (weeks, which are 10 days long in DR) to the current date
+   * @return a new ForgottenRealmsDate object
    */
   addTendays(tendays = 1) {
     return this.addDays(10 * tendays);
+  }
+
+  /**
+   * addYears
+   * adds a specified number of years (365 days) to the current date
+   * @return a new ForgottenRealmsDate object
+   */
+  addYears(years = 1) {
+    return new ForgottenRealmsDate(this.getYear() + years, this.getMonth(), this.getDay());
   }
 
   /**
@@ -115,10 +130,20 @@ class ForgottenRealmsDate {
   /**
    * subtractTendays
    * adds some tendays (weeks, which are 10 days long in DR) to the current date
+   * @return a new ForgottenRealmsDate object
    */
   subtractTendays(tendays = 1) {
     return this.subtractDays(10 * tendays);
   }
 
+  /**
+   * subtractYears
+   * subtracts a specified number of years (365 days) to the current date
+   * @return a new ForgottenRealmsDate object
+   */
+  subtractYears(years = 1) {
+    return new ForgottenRealmsDate(this.getYear() - years, this.getMonth(), this.getDay());
+  }
 }
+
 module.exports = ForgottenRealmsDate;
