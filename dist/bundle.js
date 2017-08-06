@@ -133,6 +133,7 @@ var ForgottenRealmsDate = function () {
     /**
      * getMonthName
      * get this month's name
+     * @returns string
      */
 
   }, {
@@ -144,6 +145,7 @@ var ForgottenRealmsDate = function () {
     /**
      * getMonthCommonName
      * get this month's common name
+     * @returns string
      */
 
   }, {
@@ -155,6 +157,7 @@ var ForgottenRealmsDate = function () {
     /**
      * toString
      * converts the date to a readable string
+     * @returns string
      */
 
   }, {
@@ -167,6 +170,7 @@ var ForgottenRealmsDate = function () {
      * equalTo
      * compares this date to another
      * @param {ForgottenRealmsDate} otherDate - date to compare to
+     * @returns boolean - true if otherDate is equal, false otherwise
      */
 
   }, {
@@ -179,6 +183,7 @@ var ForgottenRealmsDate = function () {
      * addDays
      * add some days to this date and return a new date with the result
      * @param {integer} days - days to add
+     * @return a new ForgottenRealmsDate object
      */
 
   }, {
@@ -206,6 +211,7 @@ var ForgottenRealmsDate = function () {
     /**
      * addTendays
      * adds some tendays (weeks, which are 10 days long in DR) to the current date
+     * @return a new ForgottenRealmsDate object
      */
 
   }, {
@@ -214,6 +220,20 @@ var ForgottenRealmsDate = function () {
       var tendays = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
       return this.addDays(10 * tendays);
+    }
+
+    /**
+     * addYears
+     * adds a specified number of years (365 days) to the current date
+     * @return a new ForgottenRealmsDate object
+     */
+
+  }, {
+    key: 'addYears',
+    value: function addYears() {
+      var years = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+      return new ForgottenRealmsDate(this.getYear() + years, this.getMonth(), this.getDay());
     }
 
     /**
@@ -247,6 +267,7 @@ var ForgottenRealmsDate = function () {
     /**
      * subtractTendays
      * adds some tendays (weeks, which are 10 days long in DR) to the current date
+     * @return a new ForgottenRealmsDate object
      */
 
   }, {
@@ -255,6 +276,20 @@ var ForgottenRealmsDate = function () {
       var tendays = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
 
       return this.subtractDays(10 * tendays);
+    }
+
+    /**
+     * subtractYears
+     * subtracts a specified number of years (365 days) to the current date
+     * @return a new ForgottenRealmsDate object
+     */
+
+  }, {
+    key: 'subtractYears',
+    value: function subtractYears() {
+      var years = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+      return new ForgottenRealmsDate(this.getYear() - years, this.getMonth(), this.getDay());
     }
   }]);
 

@@ -99,6 +99,15 @@ describe('ForgottenRealmsTest', () => {
     })
   });
 
+  describe('#addYears', () => {
+    it('adds the specified number of years to the date', () => {
+      const date = new ForgottenRealmsDate(2999, 11, 10);
+      const newDate = date.addYears(1);
+      expect(newDate.getYear()).to.equal(3000);
+      expect(newDate.getMonth()).to.equal(11);
+      expect(newDate.getDay()).to.equal(10);
+    })
+  });
 
   describe('#subtractDays', () => {
     it('does not return the same reference', () => {
@@ -123,6 +132,17 @@ describe('ForgottenRealmsTest', () => {
         expect(newDate.getDay()).to.equal(29);
       });
     });
+  });
+
+
+  describe('#subtractYears', () => {
+    it('subtracts the specified number of years to the date', () => {
+      const date = new ForgottenRealmsDate(2999, 11, 10);
+      const newDate = date.subtractYears(1);
+      expect(newDate.getYear()).to.equal(2998);
+      expect(newDate.getMonth()).to.equal(11);
+      expect(newDate.getDay()).to.equal(10);
+    })
   });
 
 });
