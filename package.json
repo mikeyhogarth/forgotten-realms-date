@@ -1,7 +1,7 @@
 {
   "name": "forgotten-realms-date",
-  "version": "0.0.0",
-  "description": "A \"Date\" object for representing and manipulating dates in using the Forgotten Realms Dalereckoning (DR) system",
+  "version": "1.0.0",
+  "description": "A function for converting dates to the Forgotten Realms Dalereckoning (DR) system",
   "main": "dist/bundle.js",
   "scripts": {
     "doc":   "jsdoc src/ForgottenRealmsDate.js -d docs",

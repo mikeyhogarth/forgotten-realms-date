@@ -1,17 +1,14 @@
 # Forgotten Realms Date
-A "Date" object for representing and manipulating dates in using the Forgotten Realms Dalereckoning (DR) system. See the [Wikipedia entry](https://en.wikipedia.org/wiki/Calendars_in_the_Forgotten_Realms) for more detail.
+A function for parsing normal date objects into a string representing the Forgotten Realms Dalereckoning (DR) system. See the [Wikipedia entry](https://en.wikipedia.org/wiki/Calendars_in_the_Forgotten_Realms) for more detail.
 
 ## Installation
 Use `dist/bundle.js` - it's built with a UMD hook so should work with whatever method you use to import modules.
 
 ## Usage
 ```
-const date = new ForgottenRealmsDate(3000, 3, 29);
-date.toString();    // => 'Tarsakh 29, 3000 DR'
-
-// Adding days
-const newDate = date.addDays(2);
-newDate.toString(); // => 'Mirtul 1, 3000 DR' 
+const fn = require('forgotten-realms-date');
+const date = new Date(3000, 3, 29);
+fn(date);    // => 'Tarsakh 29, 3000 DR'
 ```
 See [tests](src/forgotten-realms-date.test.js) for more examples, or take a look at the [API](https://mikeyhogarth.github.io/forgotten-realms-date/ForgottenRealmsDate.html) provided via JSdoc.
 
